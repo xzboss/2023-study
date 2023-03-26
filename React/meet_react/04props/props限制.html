@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<!--一下两个包的顺序固定-->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+	<!-- 引入约束 props 的类型包 -->
+	<script src="https://cdn.bootcdn.net/ajax/libs/prop-types/15.8.1/prop-types.js"></script>
+	<div id="App"></div>
+	<script type="text/babel">
+		class Mycomponent extends React.Component {
+			//isRequired 代表是否必须
+			static propTypes = {
+				name: PropTypes.string,
+				age: PropTypes.number.isRequired
+			}
+			//定义默认属性
+			static defaultProps = {
+				address: 'defaultAddress'
+			}
+			constructor(p) {
+				super(p)
+				console.log(p === this.props); // ture
+			}
+			render () {
+				const { name, age, address } = this.props
+				return (
+					<ul>
+						<li>{name}</li>
+						<li>{age + 1}</li>
+						<li>{address}</li>
+					</ul>
+				)
+			}
+		}
+		function speak () {/* code */ }
+		// 传其他类型用{}语法
+		ReactDOM.render(<Mycomponent name={'Xz'} age={9} speak={speak} />, document.getElementById('App'))
+	</script>
+
+</body>
+
+</html>

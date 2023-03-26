@@ -1,0 +1,12 @@
+.add {
+	height: 50px;
+	width: 100%;
+}
+
+.add_inp {
+	width: 100%;
+	padding: 5px;
+	background-color: white;
+	line-height: 30px;
+	outline-style: none;
+}

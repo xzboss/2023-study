@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<!--一下两个包的顺序固定-->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+	<div id="App"></div>
+	<!--type 必须是text/babel -->
+	<script type="text/babel">
+		class Mycomponent extends React.Component {
+			render () {
+				return (
+					<div>
+						<input type="text" ref='input1' />
+						<input type="button" value='输出' ref='btn1' onClick={this.tip} />
+						<input type="text" ref='input2' placeholder='失焦输出' onBlur={this.log} />
+					</div>
+				)
+			}
+			tip = () => {
+				const { input1 } = this.refs
+				input1.value = 'ok'
+			}
+			log = () => {
+				console.log('blur')
+			}
+		}
+		ReactDOM.render(<Mycomponent />, document.getElementById('App'))
+	</script>
+
+</body>
+
+</html>

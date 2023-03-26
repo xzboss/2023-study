@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<!--一下两个包的顺序固定-->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+	<!-- 引入约束 props 的类型包 -->
+	<script src="https://cdn.bootcdn.net/ajax/libs/prop-types/15.8.1/prop-types.js"></script>
+	<div id="App"></div>
+	<script type="text/babel">
+		function Mycomponent (props) {
+			const { name, age, address } = props
+			return (
+				<ul>
+					<li>{name}</li>
+					<li>{age}</li>
+					<li>{address}</li>
+				</ul>
+			)
+		}
+		Mycomponent.propTypes = {
+			name: PropTypes.string,
+			age: PropTypes.number.isRequired
+		}
+		Mycomponent.defaultProps = {
+			address: 'defaultAddress'
+		}
+		ReactDOM.render(<Mycomponent name={'Xz'} age={9} />, document.getElementById('App'))
+	</script>
+
+</body>
+
+</html>

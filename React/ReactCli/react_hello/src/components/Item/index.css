@@ -1,0 +1,25 @@
+.li_item {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px 2px;
+	height: 50px;
+}
+.li_item:hover{
+	background-color: antiquewhite;
+}
+.select{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.s_span{
+	line-height: 30px;
+}
+.Item_btn{
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	background-color: white;
+}

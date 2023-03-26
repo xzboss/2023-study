@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>map</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    let obj = {
+      a: 1,
+      c:()=>{
+        console.log(this)
+      }
+    }
+    let obj2 = {
+      a: 2,
+      c: obj.c
+    }
+    obj2.c()
+    class A{
+      funA=()=>{
+        console.log(this);
+      }
+    }
+    class B{
+      a = new A()
+      funB = this.a.funA
+      
+    }
+    let b = new B()
+    b.funB()
+  </script>
+</body>
+
+</html>

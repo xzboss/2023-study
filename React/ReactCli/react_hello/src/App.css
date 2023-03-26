@@ -1,0 +1,17 @@
+* {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	box-sizing: border-box;
+}
+
+.App {
+	width: 600px;
+	width: 500px;
+	margin: 100px auto;
+	border: 1px solid black;
+	border-color: transparent transparent black transparent;
+}
+button:hover{
+	background-color: red;
+}

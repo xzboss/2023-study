@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<!--一下两个包的顺序固定-->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+	<div id="App"></div>
+	<div id="App2"></div>
+	<div id="App3"></div>
+	<!--type 必须是text/babel -->
+	<script type="text/babel">
+		class Mycomponent extends React.Component {
+			render () {
+				const { name, age, address } = this.props
+				return (
+					<ul>
+						<li>{name}</li>
+						<li>{age}</li>
+						<li>{address}</li>
+					</ul>
+				)
+			}
+		}
+		//-
+		const obj = {
+			name: 'Tom',
+			age: 18,
+			address: 'xxxxx'
+		}
+		//-
+		ReactDOM.render(<Mycomponent {...obj} />, document.getElementById('App'))
+		ReactDOM.render(<Mycomponent name='Jack' age='19' address='xxx' />, document.getElementById('App2'))
+		ReactDOM.render(<Mycomponent name='Xz' age='9' address='xxx' />, document.getElementById('App3'))
+	</script>
+
+</body>
+
+</html>

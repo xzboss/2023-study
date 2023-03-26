@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<!--一下两个包的顺序固定-->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+	<div id="App"></div>
+	<!--type 必须是text/babel -->
+	<script type="text/babel">
+		class Mycomponent extends React.Component {
+			state = {
+				username: '',
+				password: ''
+			}
+			saveFormData = (dataName, e) => {
+				this.setState({ [dataName]: e.target.value })
+			}
+			handleSubmit = (e) => {
+				e.target.preventDefault = false
+			}
+			render () {
+				return (
+					<form onSubmit={this.handleSubmit}>
+						<input type="text" name='username' onChange={e => this.saveFormData('username', e)} />
+						<input type="text" name='password' onChange={e => this.saveFormData('password', e)} />
+						<input type="submit" value='提交' />
+					</form>
+				)
+			}
+		}
+		ReactDOM.render(<Mycomponent />, document.getElementById('App'))
+	</script>
+
+</body>
+
+</html>

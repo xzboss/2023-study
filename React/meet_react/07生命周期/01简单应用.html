@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<!--一下两个包的顺序固定-->
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script type="text/javascript" src="../js/babel.min.js"></script>
+	<div id="App"></div>
+	<!--type 必须是text/babel -->
+	<script type="text/babel">
+		class Mycomponent extends React.Component {
+			state = {
+				opacity: 1
+			}
+			death = () => {
+				ReactDOM.unmountComponentAtNode(document.getElementById('App'))
+			}
+			//挂载完成后
+			componentDidMount () {
+				//生命周期函数是通过组件实例.来执行的，所以this指向并没问题
+				this.timer = setInterval(() => {
+					let { opacity } = this.state
+					opacity -= 0.1
+					if (opacity <= 0) opacity = 1
+					console.log(opacity);
+					this.setState({ opacity, })
+				}, 200)
+			}
+			//将要被卸载时
+			componentWillUnmount () {
+				clearInterval(this.timer)
+			}
+			render () {
+				const { opacity } = this.state
+				return (
+					<div>
+						<h1 style={{ opacity, }}>渐渐消失</h1>
+						<button onClick={this.death}>死</button>
+					</div>
+				)
+			}
+		}
+		ReactDOM.render(<Mycomponent />, document.getElementById('App'))
+	</script>
+
+</body>
+
+</html>
