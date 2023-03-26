@@ -11,7 +11,7 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-        <button onClick={this.getStudent}>get student</button>
+        <button onClick={this.getStudent}>get student!</button>
       </div>
     )
   }
