@@ -1,17 +1,14 @@
-import React from 'react';
-import axios from 'axios'
+import React from 'react'
+
 import './App.css'
+import Search from './component/Search'
+import List from './component/List'
 class App extends React.Component {
-  state = {}
-  getStudent = () => {
-    axios.get("http://localhost:3000/student").then((res) => {
-      console.log(res.data);
-    })
-  }
   render () {
     return (
       <div className="App">
-        <button onClick={this.getStudent}>get student!</button>
+        <Search />
+        <List />
       </div>
     )
   }

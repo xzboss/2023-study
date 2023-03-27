@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 app.use((request, response, next) => {
 	console.log('Someone has requested the server')
+	console.log('The requestor is', request.get('Host'))
 	next()
 })
 app.get('/student', (req, res) => {
