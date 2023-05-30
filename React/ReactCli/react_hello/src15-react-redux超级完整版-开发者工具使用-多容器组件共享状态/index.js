@@ -10,6 +10,6 @@ class ROOT extends React.Component {
     )
   }
 }
-export const root = createRoot(document.getElementById('root'))
-root.render(<ROOT />)
+const root = createRoot(document.getElementById('root'))
+root.render(<ROOT />,)
 

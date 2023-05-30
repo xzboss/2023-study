@@ -1,16 +1,15 @@
-import React, { } from 'react'
-
-import { Provider } from 'react-redux'
-import Count from './containers/Count'
-import store from './redux/store'
-import Person from './containers/Person'
+import React, { useState, useEffect } from 'react'
 export default function App () {
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    console.log('@@@')
+  }, [count])
+  const handle = () => {
+    setCount(9)
+  }
   return (
     <div>
-      <Provider store={store}>
-        <Count />
-        <Person />
-      </Provider>
+      <button onClick={handle}>target</button>
     </div>
   )
 }

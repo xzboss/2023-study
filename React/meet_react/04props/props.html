@@ -20,13 +20,16 @@
 	<!--type 必须是text/babel -->
 	<script type="text/babel">
 		class Mycomponent extends React.Component {
+			demo () {
+				console.log('ok', this)
+			}
 			render () {
 				const { name, age, address } = this.props
 				return (
 					<ul>
-						<li>{name}</li>
-						<li>{age}</li>
-						<li>{address}</li>
+						<li onClick={() => { this.demo() }}>{name}</li>
+						<li onClick={this.demo}>{age}</li>
+						<li onClick={function () { this.demo() }}>{address}</li>
 					</ul>
 				)
 			}
